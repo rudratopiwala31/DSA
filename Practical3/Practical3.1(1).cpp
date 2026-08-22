@@ -1,23 +1,38 @@
 #include<iostream>
 using namespace std;
+
 int main()
 {
-    int a[5]={8,5,1,3,7};
-    for(int i=0;i<5;i++)
+    int n;
+    int a[100];
+
+    cout<<"Enter no. of students: ";
+    cin>>n;
+
+    cout<<"Enter marks: ";
+    for(int i=0;i<n;i++)
     {
-        for(int j=i+1;j<5;j++)
+        cin>>a[i];
+    }
+
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=0;j<n-i-1;j++)
         {
-            if(a[i]>a[j])
+            if(a[j]>a[j+1])
             {
-                int temp=a[i];
-                a[i]=a[j];
-                a[j]=temp;
+                int temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
             }
         }
     }
-    for(int i=0;i<5;i++)
+
+    cout<<"Sorted marks: ";
+    for(int i=0;i<n;i++)
     {
         cout<<a[i]<<" ";
     }
+
     return 0;
 }
